@@ -1,193 +1,303 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yanga</title>
-  <meta name="description" content="Ukiwa Kwenye Mgodi wa YANGA Unasaidia Timu yetu Kuongeza Mapato" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mpira TV Max— Burudani Kiganjani Kwako</title>
+<link rel="icon" href="https://i.ibb.co/7dJSRMkC/IMG-20260118-WA0003.jpg">
+<style>
+:root {
+  --bg:#0b1531;        /* dark blue background */
+  --card:#102249;      /* deep blue for cards */
+  --muted:#9bb3d1;     /* light blue-grey for text */
+  --accent:#1a73e8;    /* primary blue */
+  --accent2:#2a9df4;   /* lighter blue gradient */
+}
+body {
+  margin:0;
+  font-family:"Google Sans","Poppins",sans-serif;
+  background:var(--bg);
+  color:#e9eef6;
+}
+.wrap{max-width:960px;margin:0 auto;padding:18px}
+
+/* Header */
+.header {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  background:var(--card);
+  padding:16px;
+  border-radius:16px;
+  box-shadow:0 3px 12px rgba(0,0,0,0.5);
+}
+.icon {
+  width:90px;height:90px;border-radius:22px;
+  background:url('https://i.ibb.co/7dJSRMkC/IMG-20260118-WA0003.jpg') center/cover no-repeat;
+}
+.meta {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+.meta h1 {margin:0;font-size:22px;font-weight:600;color:#ffffff;}
+.dev {color:var(--muted);font-size:13px;margin-top:4px;}
+.badges {display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.badge {
+  background:rgba(255,255,255,0.08);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Install button */
+.install-box {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.install-btn {
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+  padding:16px 40px;
+  border-radius:999px;
+  border:none;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(26,115,232,0.4);
+  transition:transform .2s, box-shadow .3s;
+}
+.install-btn:hover {
+  transform:scale(1.05);
+  box-shadow:0 6px 24px rgba(26,115,232,0.6);
+}
+.install-sub {font-size:12px;color:var(--muted);margin-top:4px;text-align:center;}
+
+/* Screenshots */
+.screens {
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  margin-top:16px;
+  padding-bottom:8px;
+}
+.screens::-webkit-scrollbar{height:6px;}
+.screens::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:10px;}
+.ss {
+  flex:0 0 140px;
+  height:280px;
+  background:#132d5c center/cover no-repeat;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform .3s;
+}
+.ss:hover{transform:scale(1.03);}
+
+/* Sections */
+.section {
+  background:rgba(255,255,255,0.05);
+  padding:16px;
+  border-radius:14px;
+  margin-top:18px;
+}
+.section h3 {margin:0 0 8px;color:#ffffff;}
+.pill {
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:999px;
+  padding:6px 10px;
+  color:var(--muted);
+  font-size:13px;
+  margin-right:6px;
+}
+
+/* Reviews */
+.review-list{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+.review{
+  background:rgba(255,255,255,0.03);
+  border-radius:10px;
+  padding:12px;
+}
+.review .head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.avatar{width:40px;height:40px;border-radius:50%;background:#1d3b73 center/cover no-repeat;}
+.rname{font-weight:600;}
+.rstars{color:#f4c150;margin-left:auto;}
+.rtext{margin-top:6px;font-size:14px;color:#dfe9f8;}
+.dev-reply{margin-top:8px;background:rgba(255,255,255,0.06);padding:8px;border-radius:8px;font-size:13px;color:var(--muted);}
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background-color:#25D366;
+  color:white;
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:1000;
+  transition:transform .3s;
+}
+.whatsapp-btn:hover {transform:scale(1.1);}
+.whatsapp-btn img {width:32px;height:32px;}
+
+/* Footer */
+.footer {
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  padding:30px 0 20px;
+  margin-top:40px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width:1024px) {
+  .wrap {padding:16px;}
+  .meta h1 {font-size:20px;}
+  .install-btn {padding:14px 32px;}
+}
+@media (max-width:768px) {
+  .header {
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+  }
+  .icon {
+    width:80px;
+    height:80px;
+  }
+  .install-box {
+    align-items:stretch;
+    width:100%;
+    margin-top:12px;
+  }
+  .install-btn {
+    width:100%;
+    text-align:center;
+    font-size:16px;
+  }
+  .screens {
+    gap:10px;
+  }
+  .ss {
+    flex:0 0 120px;
+    height:240px;
+  }
+}
+@media (max-width:480px) {
+  body {font-size:14px;}
+  .wrap {padding:12px;}
+  .header {padding:12px;gap:10px;}
+  .meta h1 {font-size:18px;}
+  .dev {font-size:12px;}
+  .badge {font-size:12px;padding:5px 8px;}
+  .install-btn {padding:12px 0;font-size:15px;}
+  .install-sub {font-size:11px;}
+  .ss {flex:0 0 100px;height:200px;}
+  .review .head {flex-direction:column;align-items:flex-start;}
+  .rstars {margin-left:0;}
+}
+</style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
+<div class="wrap">
 
-  <!-- HEADER -->
-  <header class="bg-black text-white py-6 shadow-lg text-center">
-    <h1 class="text-3xl md:text-4xl font-bold">🎬 MGODI WA YANGA </h1>
-    <p class="text-sm mt-2">Kwa Pamoja tuna unga Mkono timu yetu </p>
-  </header>
-
-  <!-- IMAGE SLIDER -->
-  <section class="my-6">
-    <div class="swiper w-full h-[200px] md:h-[400px]">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://i.ibb.co/Pz5hgSCW/1754632842987.jpg" class="w-full h-full object-cover" alt="Slide 1" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://i.ibb.co/0pwHthMr/1754633038619.jpg" class="w-full h-full object-cover" alt="Slide 2" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://i.ibb.co/bjS6ct5j/1754633065770.jpg" class="w-full h-full object-cover" alt="Slide 3" />
-        </div>
+  <!-- Header -->
+  <div class="header">
+    <div class="icon"></div>
+    <div class="meta">
+      <h1>Mpira TV Max</h1>
+      <div class="dev">Mpira TV Max· In-app purchases</div>
+      <div class="badges">
+        <div class="badge">⭐ 4.0 (21K reviews)</div>
+        <div class="badge">📦 6 MB</div>
+        <div class="badge">📥 50K+ downloads</div>
+        <div class="badge">3+</div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
-  </section>
+    <div class="install-box">
+      <a href="https://github.com/hassanal100/MpiraTvMax/raw/refs/heads/main/Mpira%20TV%20Max.apk" class="install-btn">Install / Download</a>
+      <div class="install-sub">Streaming content · Offers in-app purchases</div>
+    </div>
+  </div>
 
-  <!-- UJUMBE MFUPI -->
-  <section class="px-4 py-6 text-center">
-    <p class="text-lg font-semibold text-gray-700 mb-4">
-      Ukiwa Kwenye Mgodi wa YANGA Unasaidia Timu yetu Kuongeza Mapato  
+  <!-- Screenshots -->
+  <div class="screens">
+    <div class="ss" style="background-image:url('https://i.ibb.co/JXywLyK/Screenshot-20260121-233738.jpg')"></div>
+    <div class="ss" style="background-image:url('https://i.ibb.co/3Y0q6GLJ/Screenshot-20260121-233753.jpg')"></div>
+    <div class="ss" style="background-image:url('https://i.ibb.co/TMV3d8mT/Screenshot-20260121-233811.jpg')"></div>
+    <div class="ss" style="background-image:url('https://i.ibb.co/Hs83hHq/Screenshot-20260121-233824.jpg')"></div>
+  </div>
+
+  <!-- About -->
+  <div class="section">
+    <h3>About this app</h3>
+    <p style="color:var(--muted);margin-bottom:10px">
+      Entertainment for Everybody —  Mpira TV Max brings live matches, highlights, and football talk shows straight to your device.
+      Watch the latest games, replays and enjoy curated sport content.
     </p>
-  </section>
+    <div>
+      <span class="pill">#2 Top free in Entertainment</span>
+      <span class="pill">Streaming content</span>
+      <span class="pill">Contains ads</span>
+    </div>
+  </div>
 
-  <!-- VIDEO MODAL -->
-  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-lg overflow-hidden shadow-lg w-full max-w-xl relative p-6 text-center">
-      <button onclick="closeModal()" class="absolute top-2 right-2 text-black text-xl font-bold z-10">&times;</button>
-      <h2 class="text-xl font-semibold text-gray-800 mb-4">🎬 Burudani Inaendelea...</h2>
-      <p class="text-gray-600 mb-4">Tafadhali Subiri Video inafunguka hivi punde...</p>
-      <div class="flex justify-center">
-        <svg class="animate-spin h-8 w-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-        </svg>
+  <!-- Reviews -->
+  <div class="section">
+    <h3>Ratings & reviews</h3>
+    <div class="review-list">
+      <div class="review">
+        <div class="head">
+          <div class="avatar" style="background-image:url('https://i.postimg.cc/SN1MNwG3/1761584071976.jpg')"></div>
+          <div class="rname">Abdulkhadir Kimaro</div>
+          <div class="rstars">★★★★★</div>
+        </div>
+        <div class="rtext">Nimependa Huduma Zenu na Bei zenu ni nafuu sana Hongereni kwa Huduma Bora Mpira TV Max 👏</div>
+        <div class="dev-reply"><b>Mpira TV Max LTD</b> — Thanks for your feedback Abdulkhadir! (8/18/25)</div>
+      </div>
+
+      <div class="review">
+        <div class="head">
+          <div class="avatar" style="background-image:url('https://i.ibb.co/PGTKt5pb/1761584472728.jpg')"></div>
+          <div class="rname">Juma Mangaiko</div>
+          <div class="rstars">★★★★★</div>
+        </div>
+        <div class="rtext">Nimependa Bei zenu nzuri na App hipo safi Wakubwa Big up 🔥</div>
+      </div>
+
+      <div class="review">
+        <div class="head">
+          <div class="avatar" style="background-image:url('https://i.ibb.co/Kjy79KS1/1761584748489.jpg')"></div>
+          <div class="rname">Emanuel Nyoni</div>
+          <div class="rstars">★★★★★</div>
+        </div>
+        <div class="rtext">A great app 💯 nipo Kenya nawapata Vizuri uku Burudani Kiganjani 🔥🔥🔥🔥.</div>
       </div>
     </div>
   </div>
 
-  <!-- MOVIE GALLERY -->
-  <section class="px-4 pb-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-      <!-- MOVIES -->
-      <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border">
-        <img src="https://i.ibb.co/7tkJ24MW/1754632883809.jpg" alt="Movie 1" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Matukio ya Usajili</h2>
-          <a href="#" onclick="startAds()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm block text-center">Chukua Zawadi ✅</a>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border">
-        <img src="https://i.ibb.co/cSLdtvHq/1754633427361.jpg" alt="Movie 2" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Shabiki Bingwa</h2>
-          <a href="#" onclick="startAds()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm block text-center">Chukua Zawadi ✅</a>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border">
-        <img src="https://i.ibb.co/FLbmWcNr/1754633414724.jpg" alt="Movie 3" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Mke wa Mtu</h2>
-          <a href="#" onclick="startAds()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm block text-center">Chukua Zawadi ✅</a>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border">
-        <img src="https://i.ibb.co/RGGQr0yK/1754633731688.jpg" alt="Movie 4" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-semibold mb-2">Kifo cha Mahaba</h2>
-          <a href="#" onclick="startAds()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm block text-center">Chukua Zawadi ✅</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WHATSAPP BUTTON -->
-  <a href="https://www.profitableratecpm.com/nt8js44d?key=d8d8cfdb8e868e11568002a67fe5adf3" class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M20.52 3.48A11.93 11.93 0 0012.07 0C5.46 0 .03 5.43 0 12a11.94 11.94 0 001.64 6L0 24l6.18-1.62A11.91 11.91 0 0012 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.18-3.48-8.52zM12 22.08a9.91 9.91 0 01-5.05-1.38l-.36-.22-3.67.96.98-3.58-.23-.37A9.91 9.91 0 012.02 12c.02-5.49 4.48-9.94 9.97-9.94 2.66 0 5.16 1.04 7.05 2.93A9.91 9.91 0 0122 12c0 5.49-4.48 9.94-10 9.94z"></path>
-    </svg>
-  </a>
-  
-  
-
-  <!-- FOOTER -->
-  <footer class="bg-black text-white text-center py-6">
-    <p class="text-sm">&copy; 2025 Mgodi wa YANGA All rights reserved</p>
-  </footer>
-
-  <!-- SWIPER JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      autoplay: {
-        delay: 3500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
-
-  <!-- ADS SCRIPT -->
-  <script>
-    const adLinks = [
-      "https://www.profitableratecpm.com/nt8js44d?key=d8d8cfdb8e868e11568002a67fe5adf3",
-      "https://www.profitableratecpm.com/z5desywyy?key=9e50b729a6b2f6115c1d322315609ef4",
-      "https://www.profitableratecpm.com/hmebn3d5e6?key=12b320a684a8e0c09f040b22b55a0360"
-    ];
-    let adIndex = 0;
-
-    function startAds() {
-      document.getElementById("videoModal").classList.remove("hidden");
-      const win = window.open(adLinks[adIndex], "_blank", "noopener,noreferrer");
-      adIndex = (adIndex + 1) % adLinks.length;
-      setTimeout(() => {
-        closeModal();
-      }, 5000);
-    }
-
-    function closeModal() {
-      document.getElementById("videoModal").classList.add("hidden");
-    }
-  </script>
-  
-  
-<!-- AUTOMATIC AD POPUP EVERY 3 SECONDS -->
-<div id="autoAdPopup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
-  <div class="bg-white p-4 rounded-xl shadow-2xl w-[90%] max-w-md text-center relative">
-    <button onclick="closeAdPopup()" class="absolute top-2 right-2 text-gray-700 text-2xl font-bold">&times;</button>
-    <p class="mb-3 text-gray-800 font-bold text-lg">Wanaotupa Nguvu...</p>
-    <iframe id="adFrame" src="" class="w-full h-48 border rounded mb-4"></iframe>
-    <button onclick="closeAdPopup()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">⏩ Skip Ads</button>
+  <!-- Footer -->
+  <div class="footer">
+    © 2026 Mpira TV Max— All rights reserved.
   </div>
+
 </div>
 
-<script>
-  const autoAdLinks = [
-    "https://www.profitableratecpm.com/nt8js44d?key=d8d8cfdb8e868e11568002a67fe5adf3"
-  ];
-  let autoAdIndex = 0;
-
-  function showAdPopup() {
-    const adPopup = document.getElementById("autoAdPopup");
-    const adFrame = document.getElementById("adFrame");
-    adFrame.src = autoAdLinks[autoAdIndex];
-    adPopup.classList.remove("hidden");
-    autoAdIndex = (autoAdIndex + 1) % autoAdLinks.length;
-  }
-
-  function closeAdPopup() {
-    document.getElementById("autoAdPopup").classList.add("hidden");
-  }
-
-  // Show ad popup every 3 seconds
-  setInterval(showAdPopup, 3000);
-</script>
-  
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/+447451250011?text=Nahitaji%20App%20ya%20DStv%20Chapu" class="whatsapp-btn" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
